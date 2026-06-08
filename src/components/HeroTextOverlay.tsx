@@ -2,7 +2,7 @@ import HeroOrderForm from "@/components/HeroOrderForm"
 
 export default function HeroTextOverlay() {
   return (
-    <div className="absolute inset-0 z-10 flex items-center justify-between px-8 md:px-16">
+    <div className="absolute inset-0 z-10 flex items-center justify-between px-8 md:px-16 pt-20">
       {/* Левая часть — текст */}
       <div className="flex flex-col justify-center max-w-lg">
         <p className="text-accent font-mono text-sm mb-4 tracking-widest">// междугороднее такси</p>
