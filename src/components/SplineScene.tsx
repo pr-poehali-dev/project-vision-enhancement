@@ -1,56 +1,22 @@
-import { Suspense, useState } from "react"
-import Spline from "@splinetool/react-spline"
+const BG_URL = "https://cdn.poehali.dev/projects/096cd460-2417-4a92-8fdd-73bad949bb52/bucket/0aaa07d5-06dc-4116-a5df-508e1f47d151.jpg"
 
 export default function SplineScene() {
-  const [isLoading, setIsLoading] = useState(true)
-  const [hasError, setHasError] = useState(false)
-
-  const handleLoad = () => {
-    console.log("Spline scene loaded successfully")
-    setIsLoading(false)
-    setHasError(false)
-  }
-
-  const handleError = (error: unknown) => {
-    console.log("Spline scene failed to load:", error)
-    setIsLoading(false)
-    setHasError(true)
-  }
-
   return (
-    <div className="absolute inset-0 w-full h-full bg-background">
-      {isLoading && (
-        <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-          <div className="text-foreground text-center">
-            <div className="text-lg mb-2">Загрузка 3D сцены...</div>
-            <div className="text-sm opacity-70">Пожалуйста, подождите</div>
-          </div>
-        </div>
-      )}
-
-      {hasError && (
-        <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-          <div className="text-foreground text-center">
-            <div className="text-lg mb-2">3D сцена недоступна</div>
-            <div className="text-sm opacity-70">Не удалось загрузить 3D модель</div>
-          </div>
-        </div>
-      )}
-
-      {!hasError && (
-        <Suspense fallback={null}>
-          <Spline
-            scene="https://prod.spline.design/l8gr6AhxxCqDIdBx/scene.splinecode"
-            onLoad={handleLoad}
-            onError={handleError}
-            style={{
-              width: "100%",
-              height: "100%",
-              background: "transparent",
-            }}
-          />
-        </Suspense>
-      )}
+    <div
+      className="absolute inset-0 w-full h-full"
+      style={{
+        backgroundImage: `url(${BG_URL})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div
+        className="absolute inset-0 w-full h-full"
+        style={{
+          background: "linear-gradient(to right, rgba(0,0,0,0.75) 40%, rgba(0,0,0,0.1) 100%)",
+        }}
+      />
     </div>
   )
 }
