@@ -3,6 +3,7 @@ import Header from "@/components/Header"
 import RotatingTextAccent from "@/components/RotatingTextAccent"
 import Footer from "@/components/Footer"
 import HeroTextOverlay from "@/components/HeroTextOverlay"
+import OrderForm from "@/components/OrderForm"
 import Icon from "@/components/ui/icon"
 
 const services = [
@@ -95,6 +96,31 @@ const Index = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Форма заказа */}
+        <section
+          id="contact"
+          className="relative rounded-4xl py-10 mx-4 md:mx-0 w-[calc(100%-2rem)] md:w-full bg-card border border-solid border-border mt-6 mb-6"
+        >
+          <div className="absolute top-8 left-8 text-foreground opacity-30 text-5xl font-extralight font-sans leading-[0rem]">+</div>
+          <div className="absolute top-8 right-8 text-foreground opacity-30 text-5xl font-sans leading-[0] font-extralight">+</div>
+          <div className="absolute bottom-8 left-8 text-foreground opacity-30 text-5xl font-sans font-extralight">+</div>
+          <div className="absolute bottom-8 right-8 text-foreground opacity-30 text-5xl font-sans font-extralight">+</div>
+
+          <div className="px-6 md:px-16">
+            <p className="text-accent font-mono text-sm mb-2 text-center">// оформить поездку</p>
+            <h2
+              className="text-foreground text-3xl md:text-4xl font-bold text-center mb-2"
+              style={{ fontFamily: "var(--font-montserrat)" }}
+            >
+              Заказать трансфер
+            </h2>
+            <p className="text-muted-foreground font-mono text-sm text-center mb-8">
+              Заполните форму — мы перезвоним и подтвердим поездку
+            </p>
+            <OrderForm />
           </div>
         </section>
       </div>
