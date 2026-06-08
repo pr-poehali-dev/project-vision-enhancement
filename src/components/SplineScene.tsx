@@ -14,7 +14,7 @@ export default function SplineScene() {
       <div
         className="absolute inset-0 w-full h-full"
         style={{
-          background: "linear-gradient(to right, rgba(0,0,0,0.75) 40%, rgba(0,0,0,0.1) 100%)",
+          background: "linear-gradient(to right, rgba(0,0,0,0.8) 35%, rgba(0,0,0,0.2) 70%, rgba(0,0,0,0.4) 100%)",
         }}
       />
     </div>

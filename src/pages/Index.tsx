@@ -35,7 +35,7 @@ const Index = () => {
   return (
     <div className="w-full min-h-screen py-0 bg-background">
       <div className="max-w-[1200px] mx-auto">
-        <main className="w-full relative h-[600px]">
+        <main className="w-full relative h-screen">
           <Header />
           <SplineScene />
           <HeroTextOverlay />
