@@ -44,6 +44,7 @@ const Index = () => {
 
         {/* Услуги */}
         <section
+          id="services"
           className="relative rounded-4xl py-7 mx-4 md:mx-0 w-[calc(100%-2rem)] md:w-full bg-card border border-solid border-border pb-16"
           style={{
             backgroundImage: `
@@ -93,6 +94,93 @@ const Index = () => {
                     {a.value}
                   </span>
                   <span className="text-muted-foreground text-xs font-mono text-center">{a.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Тарифы */}
+        <section
+          id="tariffs"
+          className="relative rounded-4xl py-10 mx-4 md:mx-0 w-[calc(100%-2rem)] md:w-full bg-card border border-solid border-border mt-6"
+        >
+          <div className="px-6 md:px-16">
+            <p className="text-accent font-mono text-sm mb-2 text-center">// тарифы</p>
+            <h2
+              className="text-foreground text-3xl md:text-4xl font-bold text-center mb-2"
+              style={{ fontFamily: "var(--font-montserrat)" }}
+            >
+              Выберите класс автомобиля
+            </h2>
+            <p className="text-muted-foreground font-mono text-sm text-center mb-10">
+              Все автомобили — ухоженные, с кондиционером и чистым салоном
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                {
+                  name: "Эконом",
+                  car: "Hyundai Solaris / KIA Rio",
+                  price: "от 15 ₽/км",
+                  features: ["До 3 пассажиров", "1 большой багаж", "Кондиционер", "Подача за 30 мин"],
+                  accent: false,
+                },
+                {
+                  name: "Комфорт",
+                  car: "Toyota Camry / Skoda Octavia",
+                  price: "от 22 ₽/км",
+                  features: ["До 4 пассажиров", "2 больших багажа", "Кожаный салон", "Вода в подарок"],
+                  accent: true,
+                },
+                {
+                  name: "Бизнес",
+                  car: "Mercedes E-class / BMW 5",
+                  price: "от 35 ₽/км",
+                  features: ["До 3 пассажиров", "3 места для багажа", "Премиум салон", "Встреча с табличкой"],
+                  accent: false,
+                },
+              ].map((t) => (
+                <div
+                  key={t.name}
+                  className={`relative rounded-2xl p-6 flex flex-col gap-4 border transition-all duration-300 ${
+                    t.accent
+                      ? "border-accent bg-accent/5 shadow-[0_0_30px_hsl(var(--accent)/0.15)]"
+                      : "border-border bg-background hover:border-accent/50"
+                  }`}
+                >
+                  {t.accent && (
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-primary-foreground font-mono text-xs px-4 py-1 rounded-full font-bold">
+                      Популярный
+                    </span>
+                  )}
+                  <div>
+                    <h3 className="text-foreground font-bold text-xl mb-1" style={{ fontFamily: "var(--font-montserrat)" }}>
+                      {t.name}
+                    </h3>
+                    <p className="text-muted-foreground font-mono text-xs">{t.car}</p>
+                  </div>
+                  <div className="text-accent font-bold text-2xl" style={{ fontFamily: "var(--font-montserrat)" }}>
+                    {t.price}
+                  </div>
+                  <ul className="flex flex-col gap-2">
+                    {t.features.map((f) => (
+                      <li key={f} className="flex items-center gap-2 text-foreground/80 font-mono text-sm">
+                        <Icon name="Check" size={14} className="text-accent shrink-0" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href="#contact"
+                    className={`mt-auto py-3 rounded-xl font-bold text-sm text-center transition-all duration-300 hover:scale-[1.02] ${
+                      t.accent
+                        ? "bg-primary text-primary-foreground hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)]"
+                        : "bg-background border border-border hover:border-accent text-foreground"
+                    }`}
+                    style={{ fontFamily: "var(--font-montserrat)" }}
+                  >
+                    Выбрать
+                  </a>
                 </div>
               ))}
             </div>

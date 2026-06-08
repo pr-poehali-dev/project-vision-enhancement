@@ -1,88 +1,92 @@
-const CDN_BASE = "https://cdn.poehali.dev/templates/meet-jack"
+import Icon from "@/components/ui/icon"
 
 export default function Footer() {
   return (
-    <footer className="w-full px-6 relative py-[0] mt-28 h-auto mb-0 bg-card">
-      <div className="absolute top-8 right-6 text-accent text-2xl">+</div>
-      <div className="absolute top-1/2 right-12 text-accent text-lg transform -translate-y-1/2">*</div>
-      <div className="absolute bottom-12 right-20 text-accent text-xl">+</div>
-      <div className="absolute top-16 right-32 text-accent text-sm">*</div>
-      <div className="absolute bottom-8 right-8 text-accent text-lg">*</div>
+    <footer id="footer-contact" className="w-full bg-card border-t border-border mt-6">
+      <div className="max-w-[1200px] mx-auto px-6 py-16">
 
-      <div className="max-w-[1200px] mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between">
-          <div className="flex-1 max-w-lg mt-8">
-            <h2
-              className="text-foreground text-4xl md:text-5xl mb-8 leading-[3.5rem] md:leading-[4rem] font-semibold text-center md:text-left mt-0"
-              style={{ fontFamily: "var(--font-montserrat)" }}
-            >
-              Все связано воедино.
+        {/* Верхний блок */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+
+          {/* Бренд */}
+          <div className="flex flex-col gap-4">
+            <div>
+              <h3 className="text-foreground font-bold text-xl" style={{ fontFamily: "var(--font-montserrat)" }}>
+                Car<span className="text-accent">Travel</span>
+              </h3>
+              <p className="text-muted-foreground font-mono text-xs tracking-widest mt-1">МЕЖДУГОРОДНЕЕ ТАКСИ</p>
+            </div>
+            <p className="text-muted-foreground font-mono text-sm leading-relaxed">
+              Комфортные поездки в аэропорт и по всем городам России. Работаем 24/7 без выходных.
+            </p>
+            <div className="flex items-center gap-3 mt-2">
+              <a href="https://t.me/cartravel" className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent transition-colors">
+                <Icon name="Send" size={15} />
+              </a>
+              <a href="https://wa.me/78001234567" className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent transition-colors">
+                <Icon name="MessageCircle" size={15} />
+              </a>
+            </div>
+          </div>
+
+          {/* Навигация */}
+          <div className="flex flex-col gap-3">
+            <h4 className="text-foreground font-bold font-mono text-sm mb-1">Навигация</h4>
+            {[
+              { label: "Услуги", href: "#services" },
+              { label: "Тарифы", href: "#tariffs" },
+              { label: "Заказать трансфер", href: "#contact" },
+              { label: "Контакты", href: "#footer-contact" },
+            ].map((l) => (
+              <a key={l.href} href={l.href} className="text-muted-foreground hover:text-accent font-mono text-sm transition-colors">
+                {l.label}
+              </a>
+            ))}
+          </div>
+
+          {/* Контакты */}
+          <div className="flex flex-col gap-4">
+            <h4 className="text-foreground font-bold font-mono text-sm mb-1">Контакты</h4>
+            <a href="tel:+78001234567" className="flex items-center gap-3 text-muted-foreground hover:text-accent font-mono text-sm transition-colors">
+              <Icon name="Phone" size={15} className="text-accent shrink-0" />
+              +7 (800) 123-45-67
+            </a>
+            <a href="https://wa.me/78001234567" className="flex items-center gap-3 text-muted-foreground hover:text-accent font-mono text-sm transition-colors">
+              <Icon name="MessageCircle" size={15} className="text-accent shrink-0" />
+              WhatsApp
+            </a>
+            <a href="https://t.me/cartravel" className="flex items-center gap-3 text-muted-foreground hover:text-accent font-mono text-sm transition-colors">
+              <Icon name="Send" size={15} className="text-accent shrink-0" />
+              Telegram
+            </a>
+            <div className="flex items-start gap-3 text-muted-foreground font-mono text-sm">
+              <Icon name="Clock" size={15} className="text-accent shrink-0 mt-0.5" />
+              Работаем круглосуточно, 24/7
+            </div>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 border-t border-border pt-10 mb-10">
+          <div>
+            <h2 className="text-foreground text-2xl md:text-3xl font-bold text-center md:text-left" style={{ fontFamily: "var(--font-montserrat)" }}>
+              Готовы к поездке?
             </h2>
-
-            <div className="space-y-4 text-foreground">
-              <div className="flex items-start gap-3">
-                <span className="text-accent mt-1">*</span>
-                <p className="text-sm">Макс верит, что вселенная - и каждая база данных - построена на связях.</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-accent mt-1">*</span>
-                <p className="text-sm">Его миссия - помогать людям проектировать с ясностью и воображением.</p>
-              </div>
-            </div>
+            <p className="text-muted-foreground font-mono text-sm mt-1 text-center md:text-left">Оформите заявку — перезвоним за 5 минут</p>
           </div>
-
-          <div className="hidden md:flex flex-1 justify-end items-center relative">
-            <div className="relative">
-              <img
-                src={`${CDN_BASE}/jack-footer-ufo-new.png`}
-                alt="Макс в НЛО"
-                width={400}
-                height={300}
-                className="object-contain mb-0 mt-4"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="md:hidden flex justify-center mt-12">
-          <div className="relative">
-            <img
-              src={`${CDN_BASE}/jack-footer-ufo-new.png`}
-              alt="Макс в НЛО"
-              width={500}
-              height={375}
-              className="object-contain"
-            />
-          </div>
-        </div>
-
-        <div id="contact" className="w-full px-6 py-16 flex flex-col md:flex-row items-center justify-center md:justify-between gap-6 md:gap-0 border-t border-border mt-16">
-          <div className="flex flex-col md:flex-row gap-2 text-center md:text-left">
-            <h2 className="text-foreground font-mono text-xl font-bold">Познакомься с Максом!</h2>
-            <p className="text-foreground font-mono font-normal text-base">Твой дружелюбный гид в мире баз данных</p>
-          </div>
-
-          <a href="mailto:hello@example.com">
-            <button className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold text-lg whitespace-nowrap hover:scale-105 hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)] transition-all duration-300 font-mono flex items-center gap-2">
-              Связаться с Максом
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M7 7h10v10M7 17L17 7" />
-              </svg>
-            </button>
+          <a
+            href="#contact"
+            className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-bold text-base whitespace-nowrap hover:scale-105 hover:shadow-[0_0_20px_hsl(var(--primary)/0.5)] transition-all duration-300 flex items-center gap-2"
+            style={{ fontFamily: "var(--font-montserrat)" }}
+          >
+            Заказать трансфер
+            <Icon name="ArrowUpRight" size={18} />
           </a>
         </div>
 
-        <div className="w-full px-6 py-4 border-t border-border flex md:flex-row items-center justify-between gap-2 flex-row">
-          <p className="text-muted-foreground text-sm font-mono">2025 Макс</p>
+        {/* Копирайт */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-2 border-t border-border pt-6">
+          <p className="text-muted-foreground text-sm font-mono">© 2025 CarTravel. Все права защищены.</p>
           <p className="text-muted-foreground text-sm font-mono">poehali.dev</p>
         </div>
       </div>
