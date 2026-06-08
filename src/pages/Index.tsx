@@ -34,13 +34,15 @@ const advantages = [
 const Index = () => {
   return (
     <div className="w-full min-h-screen py-0 bg-background">
+      {/* Hero — на всю ширину экрана */}
+      <main className="w-full relative h-screen">
+        <Header />
+        <SplineScene />
+        <HeroTextOverlay />
+        <RotatingTextAccent />
+      </main>
+
       <div className="max-w-[1200px] mx-auto">
-        <main className="w-full relative h-screen">
-          <Header />
-          <SplineScene />
-          <HeroTextOverlay />
-          <RotatingTextAccent />
-        </main>
 
         {/* Услуги */}
         <section
