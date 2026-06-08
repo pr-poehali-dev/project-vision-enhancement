@@ -33,7 +33,7 @@ export default function HeroTextOverlay() {
       </div>
 
       {/* Правая часть — форма */}
-      <div className="hidden lg:block w-[300px] shrink-0">
+      <div className="block w-[300px] shrink-0">
         <div
           className="rounded-2xl p-4 border border-white/10"
           style={{ background: "rgba(10,10,10,0.85)", backdropFilter: "blur(16px)" }}
