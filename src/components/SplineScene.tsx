@@ -1,4 +1,4 @@
-const BG_URL = "https://cdn.poehali.dev/projects/096cd460-2417-4a92-8fdd-73bad949bb52/bucket/0aaa07d5-06dc-4116-a5df-508e1f47d151.jpg"
+const BG_URL = "https://cdn.poehali.dev/projects/096cd460-2417-4a92-8fdd-73bad949bb52/files/5daa2681-69f7-481f-b788-765b59991f33.jpg"
 
 export default function SplineScene() {
   return (
