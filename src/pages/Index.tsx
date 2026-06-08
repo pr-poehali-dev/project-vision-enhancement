@@ -3,8 +3,32 @@ import Header from "@/components/Header"
 import RotatingTextAccent from "@/components/RotatingTextAccent"
 import Footer from "@/components/Footer"
 import HeroTextOverlay from "@/components/HeroTextOverlay"
+import Icon from "@/components/ui/icon"
 
-const CDN_BASE = "https://cdn.poehali.dev/templates/meet-jack"
+const services = [
+  {
+    icon: "Plane",
+    title: "Трансфер в аэропорт",
+    desc: "Подача автомобиля точно в срок. Встреча с табличкой, помощь с багажом, без ожиданий.",
+  },
+  {
+    icon: "MapPin",
+    title: "Межгородские поездки",
+    desc: "Комфортные поездки между городами России. Любое расстояние, любое время суток.",
+  },
+  {
+    icon: "Car",
+    title: "Корпоративный трансфер",
+    desc: "Деловые поездки для сотрудников и партнёров. Договор, акты, закрывающие документы.",
+  },
+]
+
+const advantages = [
+  { icon: "Clock", label: "Пунктуальность", value: "100%" },
+  { icon: "Shield", label: "Безопасность", value: "Профи" },
+  { icon: "MapPin", label: "Города России", value: "Все" },
+  { icon: "Star", label: "Рейтинг клиентов", value: "5.0" },
+]
 
 const Index = () => {
   return (
@@ -17,8 +41,9 @@ const Index = () => {
           <RotatingTextAccent />
         </main>
 
+        {/* Услуги */}
         <section
-          className="relative rounded-4xl py-7 mx-4 md:mx-0 w-[calc(100%-2rem)] md:w-full bg-card border border-solid border-border pb-20"
+          className="relative rounded-4xl py-7 mx-4 md:mx-0 w-[calc(100%-2rem)] md:w-full bg-card border border-solid border-border pb-16"
           style={{
             backgroundImage: `
               linear-gradient(var(--border) 1px, transparent 1px),
@@ -27,49 +52,48 @@ const Index = () => {
             backgroundSize: "40px 40px",
           }}
         >
-          <div className="absolute top-8 left-8 text-foreground opacity-50 text-5xl font-extralight font-sans leading-[0rem]">
-            +
-          </div>
-          <div className="absolute top-8 right-8 text-foreground opacity-50 text-5xl font-sans leading-[0] font-extralight">
-            +
-          </div>
-          <div className="absolute bottom-8 left-8 text-foreground opacity-50 text-5xl font-sans font-extralight">
-            +
-          </div>
-          <div className="absolute bottom-8 right-8 text-foreground opacity-50 text-5xl font-sans font-extralight">
-            +
-          </div>
+          <div className="absolute top-8 left-8 text-foreground opacity-50 text-5xl font-extralight font-sans leading-[0rem]">+</div>
+          <div className="absolute top-8 right-8 text-foreground opacity-50 text-5xl font-sans leading-[0] font-extralight">+</div>
+          <div className="absolute bottom-8 left-8 text-foreground opacity-50 text-5xl font-sans font-extralight">+</div>
+          <div className="absolute bottom-8 right-8 text-foreground opacity-50 text-5xl font-sans font-extralight">+</div>
 
-          <div className="px-6 md:px-40">
-            <div className="flex items-center justify-center mb-3.5 md:gap-11">
-              <div className="flex flex-col items-center">
-                <img src={`${CDN_BASE}/jack-front.png`} alt="Макс спереди" className="w-48 h-48 md:w-56 md:h-56 object-contain" />
-              </div>
+          <div className="px-6 md:px-16">
+            <p className="text-accent font-mono text-sm mb-2 text-center">// наши услуги</p>
+            <h2
+              className="text-foreground text-3xl md:text-4xl font-bold text-center mb-10"
+              style={{ fontFamily: "var(--font-montserrat)" }}
+            >
+              Куда вам нужно?
+            </h2>
 
-              <div className="flex flex-col items-center">
-                <img src={`${CDN_BASE}/jack-side.png`} alt="Макс сбоку" className="w-48 h-48 md:w-56 md:h-56 object-contain" />
-              </div>
-
-              <div className="flex flex-col items-center">
-                <img src={`${CDN_BASE}/jack-back.png`} alt="Макс сзади" className="w-48 h-48 md:w-56 md:h-56 object-contain" />
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              {services.map((s) => (
+                <div
+                  key={s.title}
+                  className="bg-background border border-border rounded-2xl p-6 flex flex-col gap-3 hover:border-accent transition-colors duration-300"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                    <Icon name={s.icon} size={24} className="text-accent" />
+                  </div>
+                  <h3 className="text-foreground font-semibold text-lg" style={{ fontFamily: "var(--font-montserrat)" }}>
+                    {s.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm font-mono">{s.desc}</p>
+                </div>
+              ))}
             </div>
 
-            <div className="flex flex-col gap-2 max-w-5xl">
-              <div className="flex items-center gap-4">
-                <span className="text-accent font-mono text-sm">Имя</span>
-                <span className="text-foreground font-mono text-sm">Макс</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <span className="text-accent font-mono text-sm">Вид</span>
-                <span className="text-foreground font-mono text-sm">Инопланетянин с планеты Флэпджек</span>
-              </div>
-              <div className="flex items-start gap-4">
-                <span className="text-accent font-mono text-sm">Характер</span>
-                <span className="text-foreground font-mono text-sm">
-                  Любопытный, гибкий, немного расслабленный - но острый, когда дело касается баз данных и организации информации.
-                </span>
-              </div>
+            {/* Преимущества */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {advantages.map((a) => (
+                <div key={a.label} className="flex flex-col items-center gap-2 p-4 bg-background border border-border rounded-2xl">
+                  <Icon name={a.icon} size={20} className="text-accent" />
+                  <span className="text-foreground text-2xl font-bold" style={{ fontFamily: "var(--font-montserrat)" }}>
+                    {a.value}
+                  </span>
+                  <span className="text-muted-foreground text-xs font-mono text-center">{a.label}</span>
+                </div>
+              ))}
             </div>
           </div>
         </section>

@@ -1,13 +1,13 @@
-const CDN_BASE = "https://cdn.poehali.dev/templates/meet-jack"
+const LOGO_URL = "https://cdn.poehali.dev/projects/c2bd1535-aa26-4a07-a3f6-51d547fc1da3/bucket/9c68532a-1e01-48df-9a75-8e68a1b85ebb.jpg"
 
 export default function RotatingTextAccent() {
-  const text = "-- Поехали! Узнать больше --- "
+  const text = "-- Заказать трансфер --- Аэропорт --- Межгород --- "
 
   return (
     <div className="absolute bottom-20 right-8 w-24 h-24 md:w-32 md:h-32">
       <div className="relative w-full h-full">
         <div className="absolute inset-0 flex items-center justify-center">
-          <img src={`${CDN_BASE}/circular-logo.svg`} alt="Logo" className="w-12 h-12 md:w-16 md:h-16" />
+          <img src={LOGO_URL} alt="CarTravel" className="w-12 h-12 md:w-16 md:h-16 object-contain rounded-full" />
         </div>
 
         <div className="absolute inset-0 animate-spin-slow">
